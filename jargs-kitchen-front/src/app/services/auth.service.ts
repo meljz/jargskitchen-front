@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class AuthService {
-  private apiUrl = 'http://localhost:8000'; // your Lumen API base URL
+  private apiUrl = 'https://jargskitchen.online/api'; //prod 
 
   constructor(private http: HttpClient) {}
 
