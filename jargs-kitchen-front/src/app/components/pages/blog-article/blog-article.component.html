@@ -1,0 +1,103 @@
+<div
+  class="bg-neutral-100 text-black selection:bg-yellow-400 selection:text-gray-900"
+>
+  <!-- Back Link -->
+  <div class="max-w-4xl mx-auto px-4 pt-32 text-center" *ngIf="article">
+    <a
+      routerLink="/blog"
+      class="inline-flex items-center text-gray-700 hover:text-yellow-400 mb-8 group"
+    >
+      <svg
+        class="w-5 h-5 mr-2 group-hover:-translate-x-1 transition-transform"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        viewBox="0 0 24 24"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          d="M15 19l-7-7 7-7"
+        />
+      </svg>
+      Back to Blog
+    </a>
+
+    <!-- Category Badge -->
+    <div class="flex items-center justify-center gap-2 mb-6">
+      <span
+        class="px-3 py-1 border border-yellow-400 text-yellow-400 text-xs font-bold tracking-widest uppercase rounded-full"
+      >
+        {{ article.category }}
+      </span>
+    </div>
+
+    <!-- Title -->
+    <h1
+      class="text-5xl md:text-7xl font-bold text-black leading-tight mb-8 animate-[slideInBottom_1.5s_ease-out_forwards]"
+    >
+      {{ article.title }}
+    </h1>
+
+    <!-- Meta Info -->
+    <div
+      class="flex flex-wrap items-center justify-center gap-6 text-gray-700 text-sm mb-12"
+    >
+      <div class="flex items-center gap-2">
+        <span>{{ article.author }}</span>
+      </div>
+      <div class="flex items-center gap-2">
+        <span>{{ article.date }}</span>
+      </div>
+      <div class="flex items-center gap-2">
+        <span>{{ article.readTime }}</span>
+      </div>
+    </div>
+
+    <!-- Featured Image -->
+    <div class="max-w-6xl mx-auto mb-16">
+      <div
+        class="rounded-2xl overflow-hidden aspect-video relative shadow-2xl shadow-black/50 animate-[slideInRight_1.5s_ease-out_forwards]"
+      >
+        <img
+          [src]="article.image"
+          [alt]="article.title"
+          class="w-full h-full object-cover"
+        />
+        <div
+          class="absolute inset-0 bg-gradient-to-t from-neutral-100/50 to-transparent pointer-events-none"
+        ></div>
+      </div>
+    </div>
+
+    <!-- Article Content -->
+    <div
+      class="max-w-3xl mx-auto px-4 prose prose-lg prose-invert prose-p:text-gray-700 space-y-10 animate-[slideInLeft_1.5s_ease-out_forwards]"
+    >
+      <ng-container *ngFor="let block of article.content">
+        <p class="mb-10 leading-8" *ngIf="block.type === 'p'">
+          {{ block.text }}
+        </p>
+        <h3
+          *ngIf="block.type === 'h3'"
+          class="mt-10 mb-4 text-3xl font-bold text-black leading-10"
+        >
+          {{ block.text }}
+        </h3>
+      </ng-container>
+    </div>
+  </div>
+
+  <!-- Not Found Message -->
+  <div
+    *ngIf="!article"
+    class="min-h-screen flex items-center justify-center text-center"
+  >
+    <div>
+      <h1 class="text-4xl font-bold text-yellow-400 mb-4">Article Not Found</h1>
+      <a routerLink="/blog" class="text-black hover:text-red-500 underline"
+        >Return to Blog</a
+      >
+    </div>
+  </div>
+</div>

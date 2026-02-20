@@ -1,0 +1,178 @@
+<nav
+  class="fixed top-0 left-0 w-full h-20 bg-gray-900/90 backdrop-blur-md border-b border-white/10 flex items-center px-6 z-50"
+>
+  <!-- Logo -->
+  <div class="flex-shrink-0 mr-8">
+    <div
+      class="flex items-center gap-3 text-2xl font-heading text-yellow-400 tracking-wider hover:text-white transition-colors"
+    >
+      <img
+        src="/images/jargs.jpg"
+        alt="Jarg's Logo"
+        class="h-12 w-auto object-contain"
+      />
+      <span>JARG'S KITCHEN</span>
+    </div>
+  </div>
+  <!-- mobile navigation-->
+  <button
+    (click)="toggleMobileMenu()"
+    class="md:hidden text-white text-3xl ml-auto curson-pointer"
+  >
+    ☰
+  </button>
+
+  <!-- Mobile Menu -->
+  <div
+    *ngIf="isMobileMenuOpen"
+    class="absolute top-20 left-0 w-full -20 bg-gray-900/90 backdrop-blur-md border-b border-white/10 flex flex-col items-center gap-6 py-6 md:hidden"
+  >
+    <a
+      routerLink=""
+      (click)="closeMobileMenu()"
+      class="text-sm font-semibold cursor-pointer text-white hover:text-yellow-400 transition"
+      >Home</a
+    >
+    <a
+      routerLink="menu"
+      (click)="closeMobileMenu()"
+      class="text-sm font-semibold cursor-pointer text-white hover:text-yellow-400 transition"
+      >Menu</a
+    >
+    <a
+      routerLink="about"
+      (click)="closeMobileMenu()"
+      class="text-sm font-semibold cursor-pointer text-white hover:text-yellow-400 transition"
+      >About</a
+    >
+    <a
+      routerLink="contact"
+      (click)="closeMobileMenu()"
+      class="text-sm font-semibold cursor-pointer text-white hover:text-yellow-400 transition"
+      >Contact</a
+    >
+    <!--login-->
+    <a
+      routerLink="auth/login"
+      (click)="closeMobileMenu()"
+      class="text-sm font-semibold cursor-pointer text-white hover:text-yellow-400 transition"
+      ><svg
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M8 16C8 18.8284 8 20.2426 8.87868 21.1213C9.75736 22 11.1716 22 14 22H15C17.8284 22 19.2426 22 20.1213 21.1213C21 20.2426 21 18.8284 21 16V8C21 5.17157 21 3.75736 20.1213 2.87868C19.2426 2 17.8284 2 15 2H14C11.1716 2 9.75736 2 8.87868 2.87868C8 3.75736 8 5.17157 8 8"
+          stroke="currentColor"
+          stroke-width="1.5"
+          stroke-linecap="round"
+        />
+        <path
+          d="M8 19.5C5.64298 19.5 4.46447 19.5 3.73223 18.7678C3 18.0355 3 16.857 3 14.5V9.5C3 7.14298 3 5.96447 3.73223 5.23223C4.46447 4.5 5.64298 4.5 8 4.5"
+          stroke="currentColor"
+          stroke-width="1.5"
+        />
+        <path
+          d="M6 12L15 12M15 12L12.5 14.5M15 12L12.5 9.5"
+          stroke="currentColor"
+          stroke-width="1.5"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+      </svg>
+    </a>
+  </div>
+
+  <!-- Center Navigation -->
+  <div class="hidden md:flex flex-1 justify-center">
+    <ul class="flex gap-10">
+      <li
+        routerLink=""
+        routerLinkActive="text-yellow-400"
+        [routerLinkActiveOptions]="{ exact: true }"
+        class="text-sm font-semibold cursor-pointer text-white hover:text-yellow-400 transition"
+      >
+        Home
+      </li>
+      <li
+        routerLink="menu"
+        routerLinkActive="text-yellow-400"
+        class="text-sm font-semibold cursor-pointer text-white hover:text-yellow-400 transition"
+      >
+        Menu
+      </li>
+      <li
+        routerLink="about"
+        routerLinkActive="text-yellow-400"
+        class="text-sm font-semibold cursor-pointer text-white hover:text-yellow-400 transition"
+      >
+        About
+      </li>
+      <li
+        routerLink="blog"
+        routerLinkActive="text-yellow-400"
+        class="text-sm font-semibold cursor-pointer text-white hover:text-yellow-400 transition"
+      >
+        Blog
+      </li>
+      <li
+        routerLink="faqs"
+        routerLinkActive="text-yellow-400"
+        class="text-sm font-semibold cursor-pointer text-white hover:text-yellow-400 transition"
+      >
+        FAQs
+      </li>
+      <li
+        routerLink="contact"
+        routerLinkActive="text-yellow-400"
+        class="text-sm font-semibold cursor-pointer text-white hover:text-yellow-400 transition"
+      >
+        Contact
+      </li>
+    </ul>
+  </div>
+  <div class="hidden md:flex items-center gap-4 ml-6">
+    <span *ngIf="userName" class="text-yellow-400 text-xl font-semibold"
+      >Hello, {{ userName }}</span
+    >
+    <!-- existing buttons -->
+  </div>
+
+  <!-- Actions (Right) -->
+  <div class="hidden md:flex items-center gap-4 ml-6">
+    <a
+      routerLink="cart"
+      routerLinkActive="bg-red-600 text-yellow-500"
+      *ngIf="isLoggedIn"
+      class="border border-yellow-400 text-sm cursor-pointer text-white hover:bg-yellow-400 px-4 py-2 rounded-lg transition"
+    >
+      🛒 Cart
+    </a>
+    <button
+      routerLink="/auth/login"
+      routerLinkActive="bg-red-600 text-yellow-500"
+      *ngIf="!isLoggedIn"
+      class="border border-yellow-400 text-sm cursor-pointer text-white hover:bg-yellow-400 px-4 py-2 rounded-lg transition"
+    >
+      Login
+    </button>
+    <button
+      routerLink="/auth/signup"
+      routerLinkActive="opacity-80"
+      *ngIf="!isLoggedIn"
+      class="bg-red-500 text-sm text-white cursor-pointer px-4 py-2 rounded-lg hover:opacity-80 transition"
+    >
+      SignUp
+    </button>
+    <button
+      (click)="logoutUser()"
+      routerLinkActive="opacity-80"
+      *ngIf="isLoggedIn"
+      class="bg-red-500 text-sm text-white cursor-pointer px-4 py-2 rounded-lg hover:opacity-80 transition"
+    >
+      logout
+    </button>
+  </div>
+</nav>

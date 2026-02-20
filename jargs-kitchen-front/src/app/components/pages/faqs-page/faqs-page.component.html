@@ -1,0 +1,66 @@
+<div class="min-h-screen bg-neutral-100 text-black font-body">
+  <!-- Hero Section -->
+  <section class="pt-32 pb-16 px-4 text-center">
+    <div class="max-w-7xl mx-auto">
+      <span
+        class="inline-block py-1 px-3 border border-yellow-400 text-yellow-600 font-heading tracking-widest text-lg mb-6 rounded"
+      >
+        GOT QUESTIONS?
+      </span>
+
+      <h1
+        class="text-5xl md:text-7xl font-heading mb-6 animate-[slideInBottom_1.5s_ease-out_forwards]"
+      >
+        FREQUENTLY ASKED
+        <span class="text-brand-red">QUESTIONS</span>
+      </h1>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section class="py-20 px-4 bg-neutral-200">
+    <div class="max-w-3xl mx-auto space-y-4">
+      <div
+        *ngFor="let faq of faqs"
+        class="rounded-xl overflow-hidden border transition-all duration-300"
+      >
+        <!-- Question -->
+        <div
+          class="w-full px-6 py-5 flex items-center justify-between text-left"
+        >
+          <div class="flex items-center gap-4">
+            <div class="p-2 rounded-lg bg-brand-darker">
+              <i
+                class="lucide text-brand-yellow"
+                [ngClass]="'lucide-' + faq.icon"
+              ></i>
+            </div>
+            <span class="text-xl font-heading tracking-wide text-black">
+              {{ faq.question }}
+            </span>
+          </div>
+        </div>
+
+        <!-- Answer (always visible) -->
+        <div
+          class="px-6 pb-6 pl-[4.5rem] text-gray-700 leading-relaxed border-t border-white/5 pt-4"
+        >
+          {{ faq.answer }}
+        </div>
+      </div>
+
+      <!-- Contact -->
+      <div class="mt-16 text-center">
+        <p class="text-brand-gray mb-6">
+          Still have questions? We're here to help.
+        </p>
+        <a
+          routerLink="/contact"
+          class="inline-block bg-yellow-600 hover:bg-red-600 text-white font-heading tracking-wider px-8 py-3 rounded transition-colors"
+        >
+          CONTACT US
+        </a>
+      </div>
+    </div>
+  </section>
+</div>

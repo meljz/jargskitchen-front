@@ -1,0 +1,198 @@
+<section
+  class="relative min-h-screen w-full flex flex-col md:flex-row bg-neutral-100 overflow-hidden pt-20 md:pt-0"
+>
+  <!-- Grunge Texture Overlay -->
+  <div
+    class="absolute inset-0 z-10 bg-gray-700 opacity-30 pointer-events-none mix-blend-overlay"
+  ></div>
+
+  <!-- Left Content -->
+  <div
+    class="relative z-20 w-full md:w-1/2 flex flex-col justify-center px-6 sm:px-12 lg:px-20 py-12 md:py-0 order-2 md:order-1"
+  >
+    <span
+      class="inline-block text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-orange-500 animate-[slideInLeft_0.8s_ease-out_forwards]"
+    >
+      <span
+        class="inline-block w-72 py-1 px-3 border border-yellow-600 text-yellow-600 font-heading tracking-widest text-lg mb-6 rounded"
+      >
+        EST. 2025 • Jargs Kitchen
+      </span>
+
+      <h1
+        class="text-6xl font-bold sm:text-7xl lg:text-8xl font-heading text-black leading-[0.9] mb-6"
+      >
+        JUICIEST BURGER THAT<br />
+        <span
+          class="text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-orange-500"
+        >
+          HITS DIFFERENT
+        </span>
+      </h1>
+
+      <p
+        class="text-gray-700 text-lg sm:text-xl max-w-md mb-10 font-body leading-relaxed"
+      >
+        Taste one of the best handcrafted burgers in Mabalacat City, Pampanga —
+        fresh, juicy, and affordable.
+      </p>
+    </span>
+
+    <span
+      class="inline-block text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-orange-500 animate-[slideInRight_0.8s_ease-out_forwards]"
+    >
+      <div class="flex flex-wrap gap-4">
+        <button
+          class="bg-yellow-400 text-gray-900 font-heading text-xl px-8 py-4 rounded hover:bg-white transition-colors flex items-center gap-2 group"
+          routerLink="menu"
+        >
+          ORDER NOW
+          <!-- Inline SVG for ArrowRight -->
+          <svg
+            class="w-5 h-5 group-hover:translate-x-1 transition-transform"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            viewBox="0 0 24 24"
+          >
+            <path d="M5 12h14M12 5l7 7-7 7" />
+          </svg>
+        </button>
+      </div>
+    </span>
+  </div>
+
+  <!-- Right Content -->
+  <div class="relative w-full md:w-1/2 h-[50vh] md:h-screen order-1 md:order-2">
+    <div
+      class="absolute inset-0 md:-ml-20 z-0 md:clip-path-diagonal w-full md:w-[calc(100%+5rem)] h-full"
+    >
+      <div class="absolute inset-0 bg-black/30 z-10 md:hidden"></div>
+      <img
+        src="https://images.unsplash.com/photo-1550547660-d9450f859349?w=1200&q=80"
+        alt="Juicy Burger"
+        class="w-full h-full object-cover object-center"
+      />
+      <div
+        class="absolute inset-0 bg-gradient-to-t from-gray-900 via-transparent to-transparent md:hidden z-20"
+      ></div>
+    </div>
+  </div>
+</section>
+
+<section class="bg-black py-20">
+  <div class="max-w-7xl mx-auto px-6">
+    <ul
+      class="grid grid-cols-1 sm:grid-cols-3 gap-10 font-heading text-3xl font-bold text-center text-yellow-400 text-2xl font-medium"
+    >
+      <li>Tasty & Juicy Burgers</li>
+      <li>Mabalacat City’s Favorite Burger Spot</li>
+      <li>Affordable Prices</li>
+    </ul>
+  </div>
+</section>
+
+<section id="menu" class="py-24 bg-neutral-100 relative">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-16">
+      <span
+        class="inline-block text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-orange-500 animate-[slideInBottom_0.8s_ease-out_forwards]"
+      >
+        <h2
+          class="text-5xl md:text-6xl font-heading text-black mb-4 relative inline-block"
+          appSlideInOnScroll
+          animationClass="slide-in-bottom"
+        >
+          Menu's Top Picks
+          <span
+            class="absolute -bottom-2 left-0 w-full h-2 bg-yellow-400 transform -skew-x-12"
+          ></span>
+        </h2>
+      </span>
+      <p
+        class="text-gray-700 mt-6 max-w-2xl mx-auto text-lg"
+        appSlideInOnScroll
+        animationClass="slide-in-left"
+      >
+        Street food classics elevated to a whole new level. Warning: Highly
+        addictive.
+      </p>
+    </div>
+
+    <div
+      class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+      routerLink="menu"
+    >
+      <div
+        *ngFor="let item of menuItems; let i = index"
+        class="bg-olive-800 text-gray-700 rounded-lg overflow-hidden shadow-lg"
+      >
+        <img
+          [src]="item.image"
+          [alt]="item.name"
+          class="w-full h-48 object-cover"
+        />
+        <div class="p-6">
+          <h3
+            class="text-2xl font-heading text-gray-700 mb-2 cursor-pointer hover:text-yellow-500 transition"
+          >
+            {{ item.name }}
+          </h3>
+          <p class="text-gray-400 mb-4">{{ item.description }}</p>
+          <!--<span class="text-black font-bold text-lg">₱ {{ item.price }}</span>-->
+          <!-- Add to Cart Button  <button (click)="addToCart(item)" class="mt-4 w-full bg-yellow-400 text-gray-900 font-semibold px-4 py-2 rounded-lg hover:bg-yellow-500 transition" > Add to Cart </button>-->
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="how-to-order" class="py-24 bg-yellow-500 relative overflow-hidden">
+  <!-- Background decoration -->
+  <div
+    class="absolute top-0 left-0 w-full h-full opacity-5 pointer-events-none"
+  >
+    <div
+      class="absolute top-10 left-10 w-64 h-64 rounded-full bg-yellow-400 blur-3xl"
+    ></div>
+    <div
+      class="absolute bottom-10 right-10 w-64 h-64 rounded-full bg-red-500 blur-3xl"
+    ></div>
+  </div>
+
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    <div class="text-center mb-20">
+      <h2 class="text-5xl md:text-6xl font-heading text-black mb-4">
+        HOW TO ORDER
+      </h2>
+      <div class="w-24 h-1 bg-red-500 mx-auto"></div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-12 relative">
+      <!-- Connecting line for desktop -->
+      <div
+        class="hidden md:block absolute top-12 left-[16%] right-[16%] h-0.5 border-t-2 border-dashed border-white/20 z-0"
+      ></div>
+
+      <div
+        *ngFor="let step of steps; let i = index"
+        class="relative z-10 flex flex-col items-center text-center group"
+      >
+        <div
+          class="w-24 h-24 rounded-full bg-gray-900 border-4 border-yellow-400 flex items-center justify-center mb-8 shadow-lg group-hover:scale-110 transition-transform duration-300"
+        >
+          <span class="text-3xl text-black">{{ step.icon }}</span>
+        </div>
+
+        <h3
+          class="text-3xl font-heading text-black mb-3 group-hover:text-yellow-400 transition-colors"
+        >
+          {{ step.title }}
+        </h3>
+        <p class="text-gray-700 max-w-xs leading-relaxed">
+          {{ step.desc }}
+        </p>
+      </div>
+    </div>
+  </div>
+</section>

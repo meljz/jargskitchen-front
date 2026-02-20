@@ -1,0 +1,100 @@
+<div class="min-h-screen bg-gray-900 text-white grid lg:grid-cols-2">
+  <!-- LEFT PANEL (Desktop Only) -->
+  <div class="hidden lg:flex relative flex-col justify-between p-12">
+    <div class="absolute inset-0">
+      <img
+        src="https://images.unsplash.com/photo-1550547660-d9450f859349?w=1200&q=80"
+        class="w-full h-full object-cover"
+      />
+      <div class="absolute inset-0 bg-black/70"></div>
+    </div>
+
+    <div class="relative z-10">
+      <a
+        routerLink="/"
+        class="text-2xl font-bold text-yellow-400 tracking-wider"
+      >
+        JARG'S KITCHEN
+      </a>
+    </div>
+
+    <div class="relative z-10 mt-auto">
+      <h1 class="text-5xl font-bold mb-4">
+        HUNGRY <span class="text-yellow-400">AGAIN?</span>
+      </h1>
+      <p class="text-gray-300">
+        Sign in to order one of the best burgers in Mabalacat City. We are just
+        a click away.
+      </p>
+    </div>
+  </div>
+
+  <!-- RIGHT PANEL -->
+  <div class="flex items-center justify-center px-6 py-12">
+    <div class="w-full max-w-md">
+      <h2 class="text-4xl font-bold mb-2">
+        WELCOME <span class="text-yellow-400">BACK</span>
+      </h2>
+      <div class="w-16 h-1 bg-yellow-400 mb-6"></div>
+
+      <form (ngSubmit)="loginUser()" class="space-y-10">
+        <h2>Sign in to your account</h2>
+        <!-- EMAIL -->
+        <div>
+          <label class="block text-sm mb-2">Email Address</label>
+          <input
+            type="email"
+            name="email"
+            [(ngModel)]="email"
+            required
+            class="w-full bg-gray-800 border border-gray-700 rounded-lg px-4 py-3 text-white focus:border-yellow-400 focus:outline-none"
+            placeholder="you@example.com"
+          />
+        </div>
+
+        <!-- PASSWORD -->
+        <div>
+          <label class="block text-sm mb-2">Password</label>
+          <div class="relative">
+            <input
+              [type]="showPassword ? 'text' : 'password'"
+              name="password"
+              [(ngModel)]="password"
+              required
+              class="w-full bg-gray-800 border border-gray-700 rounded-lg px-4 py-3 text-white focus:border-yellow-400 focus:outline-none"
+              placeholder="••••••••"
+            />
+            <button
+              type="button"
+              (click)="togglePassword()"
+              class="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 hover:text-white"
+            >
+              {{ showPassword ? "Hide" : "Show" }}
+            </button>
+          </div>
+        </div>
+
+        <!-- SUBMIT -->
+        <button
+          type="submit"
+          [disabled]="isLoading"
+          class="w-full bg-yellow-400 text-gray-900 font-bold py-3 rounded-lg hover:bg-white transition disabled:opacity-50"
+        >
+          <span *ngIf="!isLoading">SIGN IN</span>
+          <span *ngIf="isLoading">SIGNING IN...</span>
+        </button>
+      </form>
+
+      <!-- SIGNUP -->
+      <p class="text-center mt-6 text-gray-400">
+        Don't have an account?
+        <a
+          routerLink="/auth/signup"
+          class="text-yellow-400 hover:text-white ml-1"
+        >
+          SIGN UP
+        </a>
+      </p>
+    </div>
+  </div>
+</div>
