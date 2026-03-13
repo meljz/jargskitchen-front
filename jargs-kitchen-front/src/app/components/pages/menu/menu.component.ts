@@ -53,7 +53,7 @@ export class MenuComponent {
       popular: true,
     },
     {
-      id: 1,
+      id: 2,
       name: "Jarg's Super Deluxe",
       description: 'Single patty, cheddar, lettuce, tomato, house sauce',
       price: 8.99,
@@ -63,7 +63,7 @@ export class MenuComponent {
       popular: true,
     },
     {
-      id: 1,
+      id: 3,
       name: "Jarg's Super Deluxe",
       description: 'Single patty, cheddar, lettuce, tomato, house sauce',
       price: 8.99,
@@ -73,7 +73,7 @@ export class MenuComponent {
       popular: true,
     },
     {
-      id: 1,
+      id: 4,
       name: "Jarg's Deluxe",
       description: 'Single patty, cheddar, lettuce, tomato, house sauce',
       price: 8.99,
@@ -83,7 +83,7 @@ export class MenuComponent {
       popular: true,
     },
     {
-      id: 2,
+      id: 5,
       name: "Jarg's Double",
       description: 'Double patty, double cheese, bacon, caramelized onions',
       price: 12.99,
@@ -93,7 +93,7 @@ export class MenuComponent {
       popular: true,
     },
     {
-      id: 3,
+      id: 6,
       name: "Jarg's Supreme",
       description: 'Crispy chicken, jalapeños, spicy mayo, pepper jack',
       price: 10.99,
@@ -102,7 +102,7 @@ export class MenuComponent {
         'images/menu6.jpg',
     },
     {
-      id: 4,
+      id: 7,
       name: "Jarg's Cheese Burger",
       description: 'Double patty, double cheese, bacon, caramelized onions',
       price: 11.99,
@@ -111,7 +111,7 @@ export class MenuComponent {
         'images/menu7.jpg',
     },
     {
-      id: 5,
+      id: 8,
       name: "Jarg's Chicken",
       description: 'Golden shoestring fries with sea salt',
       price: 3.99,
@@ -120,7 +120,7 @@ export class MenuComponent {
         'images/menu8.jpg',
     },
     {
-      id: 6,
+      id: 9,
       name: "Jarg's Whole Chicken",
       description: 'Beer-battered thick cut onion rings',
       price: 4.99,
