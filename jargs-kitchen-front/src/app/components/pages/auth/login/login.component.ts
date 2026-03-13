@@ -3,6 +3,7 @@ import { FormsModule } from '@angular/forms';
 import { Router, RouterLink } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { AuthService } from '../../../../services/auth.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-login',
@@ -20,6 +21,7 @@ export class LoginComponent {
   constructor(
     private authService: AuthService,
     private router: Router,
+    private toastr: ToastrService,
   ) {}
 
   togglePassword() {
@@ -38,14 +40,16 @@ export class LoginComponent {
 
     this.authService.login(credentials).subscribe({
       next: (res) => {
-        alert('Login successful!');
+        //alert('Login successful!');
+        this.toastr.success('Login successful!');
         this.isLoading = false;
         this.authService.saveToken(res.token);
         this.router.navigate(['/dashboard']);
       },
       error: (err) => {
         this.isLoading = false;
-        alert('Login failed!');
+        //alert('Login failed!');
+        this.toastr.error('Login failed!');
         console.error(err);
       },
     });

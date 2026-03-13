@@ -3,8 +3,8 @@ import { CommonModule } from '@angular/common';
 import { CartService } from '../../../services/cart.service';
 import { RouterLink, RouterModule } from '@angular/router';
 import { AuthService } from '../../../services/auth.service'; // adjust path if needed
-import { Router } from '@angular/router'
-
+import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 @Component({
   selector: 'app-header',
   standalone: true,
@@ -21,7 +21,8 @@ export class HeaderComponent {
   constructor(
     public cartService: CartService,
     private authService: AuthService,
-    private router: Router
+    private router: Router,
+    private toastr: ToastrService,
   ) {}
 
   toggleMobileMenu() {
@@ -63,10 +64,11 @@ export class HeaderComponent {
 
   logoutUser() {
     this.authService.logout();
-    alert('user logged out');
+    //alert('user logged out');
+    this.toastr.info('user logged out');
     this.userName = null;
     localStorage.removeItem('token');
     localStorage.removeItem('name');
-  this.router.navigate(['/']);
+    this.router.navigate(['/']);
   }
 }

@@ -3,6 +3,7 @@ import { Router, RouterLink } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { AuthService } from '../../../../services/auth.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-register',
@@ -22,6 +23,7 @@ export class RegisterComponent {
   constructor(
     private authService: AuthService,
     private router: Router,
+    private toastr: ToastrService,
   ) {}
 
   togglePassword() {
@@ -57,12 +59,14 @@ export class RegisterComponent {
     this.authService.register(data).subscribe({
       next: (res) => {
         this.isLoading = false;
-        alert('Registration successful!');
+        //alert('Registration successful!');
+        this.toastr.success('Registration successful!');
         this.router.navigate(['/auth/login']);
       },
       error: (err) => {
         this.isLoading = false;
-        alert('Registration failed!');
+        //alert('Registration failed!');
+        this.toastr.error('Registration failed!');
         console.error(err);
       },
     });
