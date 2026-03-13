@@ -24,6 +24,7 @@
     </a>
 
     <!-- Category Badge -->
+    <!--
     <div class="flex items-center justify-center gap-2 mb-6">
       <span
         class="px-3 py-1 border border-yellow-400 text-yellow-400 text-xs font-bold tracking-widest uppercase rounded-full"
@@ -31,10 +32,11 @@
         {{ article.category }}
       </span>
     </div>
+    -->
 
     <!-- Title -->
     <h1
-      class="text-5xl md:text-7xl font-bold text-black leading-tight mb-8 animate-[slideInBottom_1.5s_ease-out_forwards]"
+      class="text-5xl md:text-5xl font-bold text-black leading-tight mb-8 animate-[slideInBottom_1.5s_ease-out_forwards]"
     >
       {{ article.title }}
     </h1>
@@ -43,9 +45,11 @@
     <div
       class="flex flex-wrap items-center justify-center gap-6 text-gray-700 text-sm mb-12"
     >
+      <!--
       <div class="flex items-center gap-2">
         <span>{{ article.author }}</span>
       </div>
+      -->
       <div class="flex items-center gap-2">
         <span>{{ article.date }}</span>
       </div>
