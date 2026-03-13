@@ -134,9 +134,13 @@
     </ul>
   </div>
   <div class="hidden md:flex items-center gap-4 ml-6">
-    <span *ngIf="userName" class="text-yellow-400 text-xl font-semibold"
-      >Hello, {{ userName }}</span
+    <div
+      *ngIf="userName"
+      class="hidden md:flex items-center gap-2 bg-yellow-400/10 border border-yellow-400/30 px-4 py-1.5 rounded-full"
     >
+      <span class="w-2 h-2 rounded-full bg-green-400 animate-pulse"></span>
+      <span class="text-green-400 text-sm font-semibold">{{ userName }}</span>
+    </div>
     <!-- existing buttons -->
   </div>
 
