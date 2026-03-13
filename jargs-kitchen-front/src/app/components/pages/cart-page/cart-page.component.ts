@@ -1,10 +1,8 @@
 import { CommonModule } from '@angular/common';
 import { Component, inject } from '@angular/core';
-import { RouterLink, RouterModule } from "@angular/router";
+import { RouterLink, RouterModule } from '@angular/router';
 import { CartService } from '../../../services/cart.service';
 import { CartItem } from '../../../models/menu-item.model';
-
-
 
 @Component({
   selector: 'cart-page',
@@ -15,10 +13,9 @@ import { CartItem } from '../../../models/menu-item.model';
 })
 export class CartPageComponent {
   private cartService = inject(CartService);
-  
-  cartItems = this.cartService.cart;   // signal
-  cartCount = this.cartService.cartCount;
 
+  cartItems = this.cartService.cart; // signal
+  cartCount = this.cartService.cartCount;
 
   get subtotal(): number {
     return this.cartService.cartTotal();
@@ -50,7 +47,6 @@ export class CartPageComponent {
       }
     }
   }
-
 
   removeItem(item: CartItem) {
     this.cartService.removeFromCart(item.id);
