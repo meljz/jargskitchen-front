@@ -6,7 +6,8 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class AuthService {
-  private apiUrl = 'https://jargskitchen.online/api'; //prod 
+  private apiUrl = 'http://localhost:8000/api'; //local
+  //   //private apiUrl = 'https://jargskitchen.online/api'; //prod
 
   constructor(private http: HttpClient) {}
 
