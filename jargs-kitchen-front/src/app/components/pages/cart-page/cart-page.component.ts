@@ -1,21 +1,31 @@
-import { CommonModule } from '@angular/common';
+// src/app/components/pages/cart-page/cart-page.component.ts
+import { CommonModule, NgForOf, NgIf } from '@angular/common';
 import { Component, inject } from '@angular/core';
 import { RouterLink, RouterModule } from '@angular/router';
 import { CartService } from '../../../services/cart.service';
 import { CartItem } from '../../../models/menu-item.model';
+import { OrderService } from '../../../services/order.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'cart-page',
   standalone: true,
-  imports: [CommonModule, RouterLink, RouterModule],
+  imports: [CommonModule, NgIf, NgForOf, RouterLink, RouterModule],
   templateUrl: './cart-page.component.html',
   styleUrls: ['./cart-page.component.css'],
 })
 export class CartPageComponent {
   private cartService = inject(CartService);
+  private orderService = inject(OrderService);
 
-  cartItems = this.cartService.cart; // signal
-  cartCount = this.cartService.cartCount;
+  // store last order for mini receipt
+  lastOrder: any = null;
+
+  constructor(private toastr: ToastrService) {}
+
+  get cartItemsList(): CartItem[] {
+    return this.cartService.cart();
+  }
 
   get subtotal(): number {
     return this.cartService.cartTotal();
@@ -36,12 +46,10 @@ export class CartPageComponent {
   updateQuantity(item: CartItem, newQty: number) {
     const currentQty = item.quantity;
     if (newQty > currentQty) {
-      // Add more items
       for (let i = 0; i < newQty - currentQty; i++) {
         this.cartService.addToCart(item);
       }
     } else if (newQty < currentQty) {
-      // Remove items
       for (let i = 0; i < currentQty - newQty; i++) {
         this.cartService.removeFromCart(item.id);
       }
@@ -50,5 +58,24 @@ export class CartPageComponent {
 
   removeItem(item: CartItem) {
     this.cartService.removeFromCart(item.id);
+  }
+
+  checkout() {
+    const cartItems = this.cartItemsList;
+    if (cartItems.length === 0) return;
+
+    this.orderService.placeOrder(cartItems).subscribe({
+      next: (res) => {
+        console.log('Order saved in backend:', res);
+        this.toastr.success('Order submitted successfully!');
+        // save order for mini receipt
+        this.lastOrder = res.order;
+        this.cartService.clearCart();
+      },
+      error: (err) => {
+        console.error('Order submission failed:', err);
+        this.toastr.error('Order failed to submit, please try again.', err);
+      },
+    });
   }
 }

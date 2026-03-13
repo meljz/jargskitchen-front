@@ -30,7 +30,7 @@ export class BlogPageComponent {
       title: 'Jargs Kitchen Launched',
       slug: 'Jargs Kitchen Launched',
       excerpt:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+  'Jargs Kitchen in Mabalacat, Pampanga has quickly become a favorite destination for bold flavors and satisfying comfort food. From juicy burgers to crispy fried chicken and signature sauces, the kitchen continues to attract food lovers looking for delicious and affordable meals.',
       date: 'October 12, 2026',
       author: 'who',
       image: 'images/jargs-kitchen-3.jpg',
@@ -40,7 +40,7 @@ export class BlogPageComponent {
       title: 'Behind the Scenes: How Jargs Kitchen Sources Fresh Ingredients',
       slug: 'Behind the Scenes: How Jargs Kitchen Sources Fresh Ingredients',
       excerpt:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+  'Great food starts with great ingredients. Discover how Jargs Kitchen carefully selects fresh meats, vegetables, and spices to create the bold flavors behind their burgers, fried chicken, and signature dishes.',
       date: 'October 12, 2026',
 
       author: 'who',
@@ -51,7 +51,7 @@ export class BlogPageComponent {
       title: 'Atsara: The Filipino Sidekick That Makes Every Meal Better',
       slug: 'Atsara: The Filipino Sidekick That Makes Every Meal Better',
       excerpt:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+  'Atsara, the classic Filipino pickled papaya side dish, brings a sweet and tangy balance to rich comfort food. Learn how this refreshing favorite perfectly complements burgers, fried chicken, and other meals at Jargs Kitchen.',
       date: 'September 15, 2026',
       author: 'who',
       image: 'images/atsara.png',
@@ -61,8 +61,8 @@ export class BlogPageComponent {
       title:
         'The History of Jargs Kitchen: From Simple Recipes to Flavorful Favorites',
       slug: 'The History of Jargs Kitchen: From Simple Recipes to Flavorful Favorites',
-      excerpt:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+     excerpt:
+  'From a small kitchen with a passion for cooking to a beloved local food spot in Pampanga, the story of Jargs Kitchen shows how simple recipes and bold flavors turned into customer favorites.',
       date: 'August 30, 2026',
       author: 'who',
       image: 'images/jargs-kitchen-1.jpg',
